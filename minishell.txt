@@ -1,0 +1,26 @@
+1. définir une ou plusieurs structures qui seront utilisées pour l'execution des commandes
+g_minishell est la struc princ:
+	- exit = 1 si la boucle doit se terminer ou 0 si elle peut continuer
+	- raw_input : string qui stocke le résultat de readline
+	-
+main.c :
+	- initialiser les structures
+	- boucle infinie interrompu par exit :
+		- prompting qui va lancer readline et intercepter les signals
+		- parsing qui va vérifier si les arguments sont executables
+		- lexing qui va déterminer le comportement des commandes entre les pipes
+		- execution des commandes en fonctions du lexing
+		- cleaning et boucle jusqu'à la fin des commandes
+
+parsing :
+	- si la string n'est pas vide, add_history
+	- check_valid_quote : fonction qui permet de vérifier si les guillemets,
+	simples et doubles sont utilisés par paire. => circule sur la string, si ',
+	bool1 = 1, si ", bool2 = 1, si un deuxieme ', bool1 = 0 et idem pour bool2.
+	si un 3eme ', bool1 est à nouveau égal à 1 et ainsi de suite... si à la fin,
+	bool1 ou bool2 = 1, c'est qu'il y a un des 2 impairs donc on retourne false.
+	- check_valid_metacharacters :
+		- si ' ou ", parcours la string jusqu'à la deuxieme ' ou ".
+		- puis, check s'il y a des <, <<, >, >>, | ou || et si leur position et
+		ce qu'il y a avant et/ou après est valide.
+

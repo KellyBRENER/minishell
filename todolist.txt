@@ -1,0 +1,8 @@
+-> définir une structure
+-> apprendre à utiliser les signaux
+-> est-ce que les guillemets doivent toujours être par pairs ? si "'" ou '"',
+que se passe t'il?
+-> qu'est-ce qu'un métacharactere ?
+-> analyser la fonction "analyze_before et after_metachar" en détail pour bien
+comprendre ce qu'il y a à check avant et après.
+
